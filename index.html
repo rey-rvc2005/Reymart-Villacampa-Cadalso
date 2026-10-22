@@ -5,17 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111827">
 
-  <meta name="description" content="A fun interactive page made with love by Reymart Villacampa Cadalso.">
-  <meta name="author" content="Reymart Villacampa Cadalso">
-  <meta name="robots" content="index,follow">
-
-  <!-- Google AdSense Verification Meta Tag -->
+  <!-- Google AdSense Verification & Publisher Tag -->
   <meta name="google-adsense-account" content="ca-pub-8309769369347508">
-
-  <!-- Google AdSense Script -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8309769369347508"
-    crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8309769369347508" crossorigin="anonymous"></script>
 
   <title>Click Me, Reymart!</title>
 
@@ -33,10 +25,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 24px;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--white);
       background:
         radial-gradient(circle at 15% 15%, rgba(251,113,133,.25), transparent 32%),
@@ -52,7 +46,6 @@
       border-radius: 28px;
       background: rgba(17,24,39,.88);
       box-shadow: 0 24px 70px rgba(0,0,0,.35);
-      backdrop-filter: blur(14px);
       animation: appear .7s ease both;
     }
 
@@ -67,19 +60,9 @@
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(1.8rem, 7vw, 2.5rem);
-      line-height: 1.12;
-    }
-
+    h1 { margin: 0; font-size: clamp(1.8rem, 7vw, 2.5rem); line-height: 1.12; }
     .name { color: var(--pink); }
-
-    .intro {
-      color: #d1d5db;
-      line-height: 1.6;
-      margin: 16px 0 24px;
-    }
+    .intro { color: #d1d5db; line-height: 1.6; margin: 16px 0 24px; }
 
     button {
       width: 100%;
@@ -90,59 +73,47 @@
       font-size: 1rem;
       font-weight: 800;
       cursor: pointer;
-      transition: transform .15s ease;
-      -webkit-tap-highlight-color: transparent;
+      transition: transform .15s ease, opacity .15s ease;
     }
 
     button:active { transform: scale(.98); }
 
-    button:focus-visible {
-      outline: 3px solid white;
-      outline-offset: 3px;
-    }
-
     .primary {
       color: #1f1235;
       background: linear-gradient(100deg, #fda4af, #c4b5fd);
-      box-shadow: 0 8px 24px rgba(167,139,250,.22);
     }
 
-    .question {
-      display: none;
-      margin-top: 26px;
-      animation: appear .4s ease both;
-    }
-
+    .question { display: none; margin-top: 26px; animation: appear .4s ease both; }
     .question.show { display: block; }
-
-    .question h2 {
-      font-size: 1.45rem;
-      margin: 0 0 8px;
-    }
-
-    .question p {
-      color: #d1d5db;
-      margin: 0 0 18px;
-    }
-
-    .answers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
+    .question h2 { font-size: 1.45rem; margin: 0 0 8px; }
+    .question p { color: #d1d5db; margin: 0 0 18px; }
+    .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .yes { color: #052e16; background: #86efac; }
     .no { color: #fff; background: #f87171; }
+    .download-note { font-size: .75rem; color: #a78bfa; margin-top: 10px; }
+    
+    .hint { font-size: .78rem; color: #9ca3af; margin-top: 20px; }
+    .heart { display: inline-block; animation: pulse 1.2s infinite; }
 
-    .hint {
-      font-size: .78rem;
-      color: #9ca3af;
+    /* Google AdSense Wrapper */
+    .ad-wrapper {
+      width: min(100%, 430px);
       margin-top: 20px;
+      padding: 12px;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      text-align: center;
+      animation: appear .9s ease both;
     }
-
-    .heart {
-      display: inline-block;
-      animation: pulse 1.2s infinite;
+    
+    .ad-label {
+      font-size: 0.68rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: block;
     }
 
     @keyframes appear {
@@ -164,56 +135,51 @@
 </head>
 
 <body>
+
   <main class="card">
     <div class="emoji" aria-hidden="true">😎</div>
-
     <p class="eyebrow">A tiny question for you</p>
+    <h1>Click Me, <span class="name">Reymart Villacampa Cadalso!</span></h1>
+    <p class="intro">May itatanong lang ako sa'yo. Ready ka na ba? 👀</p>
 
-    <h1>
-      Click Me,
-      <span class="name">Reymart Villacampa Cadalso!</span>
-    </h1>
-
-    <p class="intro">
-      May itatanong lang ako sa'yo. Ready ka na ba? 👀
-    </p>
-
-    <button class="primary" id="startBtn" type="button">
-      ✨ Click Me!
-    </button>
+    <button class="primary" id="startBtn" type="button">✨ Click Me!</button>
 
     <section class="question" id="question" aria-live="polite">
       <h2>Pogi ba ako? 😏</h2>
       <p>Choose your answer… pero may surprise pa rin! 😂</p>
-
       <div class="answers">
-        <button class="yes" type="button" data-answer="Oo">
-          Oo 😍
-        </button>
-
-        <button class="no" type="button" data-answer="Hindi">
-          Hindi 😂
-        </button>
+        <button class="yes" type="button" data-answer="Oo">Oo 😍</button>
+        <button class="no" type="button" data-answer="Hindi">Hindi 😂</button>
       </div>
+      <p class="download-note">💡 Answering will proceed to the KSWEB APK download link.</p>
     </section>
 
-    <p class="hint">
-      Made with <span class="heart">💗</span> by Reymart
-    </p>
+    <p class="hint">Made with <span class="heart">💗</span> by Reymart</p>
   </main>
 
+  <!-- Google AdSense Container Placement -->
+  <div class="ad-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8309769369347508"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <script>
-    const DOWNLOAD_LINK =
-      "https://www.mediafire.com/file/6his4b9kkfd31te/KSWEB_4.06_93_67862d.apk/file";
+    const DOWNLOAD_LINK = "https://www.mediafire.com/file/6his4b9kkfd31te/KSWEB_4.06_93_67862d.apk/file";
 
-    const startBtn = document.getElementById("startBtn");
-    const question = document.getElementById("question");
-
-    startBtn.addEventListener("click", function () {
-      question.classList.add("show");
-      startBtn.textContent = "😏 Now answer me!";
-      startBtn.disabled = true;
-      startBtn.style.opacity = "0.8";
+    document.getElementById("startBtn").addEventListener("click", function () {
+      document.getElementById("question").classList.add("show");
+      this.textContent = "😏 Now answer me!";
+      this.disabled = true;
+      this.style.opacity = "0.7";
+      this.style.cursor = "default";
     });
 
     document.querySelectorAll("[data-answer]").forEach(function (button) {
@@ -222,5 +188,6 @@
       });
     });
   </script>
+
 </body>
 </html>
