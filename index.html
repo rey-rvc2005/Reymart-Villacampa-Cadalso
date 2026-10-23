@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111827">
-
-  <!-- Google AdSense Verification & Publisher Tag -->
   <meta name="google-adsense-account" content="ca-pub-8309769369347508">
   <title>Click Me, Reymart!</title>
 
@@ -13,8 +11,6 @@
     * { box-sizing: border-box; }
 
     :root {
-      --bg1: #111827;
-      --bg2: #312e81;
       --pink: #fb7185;
       --purple: #a78bfa;
       --white: #f9fafb;
@@ -23,99 +19,135 @@
     body {
       margin: 0;
       min-height: 100vh;
+      padding: 24px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 24px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: system-ui, sans-serif;
       color: var(--white);
       background:
-        radial-gradient(circle at 15% 15%, rgba(251,113,133,.25), transparent 32%),
-        radial-gradient(circle at 85% 85%, rgba(167,139,250,.25), transparent 35%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+        radial-gradient(circle at 15% 15%, #fb718540, transparent 32%),
+        radial-gradient(circle at 85% 85%, #a78bfa40, transparent 35%),
+        linear-gradient(135deg, #111827, #312e81);
     }
 
     .card {
-      width: min(100%, 430px);
-      padding: 34px 24px;
+      width: min(100%, 440px);
+      padding: 30px 23px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 28px;
-      background: rgba(17,24,39,.88);
-      box-shadow: 0 24px 70px rgba(0,0,0,.35);
-      animation: appear .7s ease both;
+      border: 1px solid #ffffff2e;
+      border-radius: 26px;
+      background: #111827ef;
+      box-shadow: 0 24px 70px #0006;
+      animation: appear .5s ease;
     }
 
     .emoji { font-size: 54px; margin-bottom: 8px; }
 
     .eyebrow {
-      margin: 0 0 8px;
       color: #c4b5fd;
       font-size: .8rem;
       font-weight: 800;
-      letter-spacing: .18em;
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
-    h1 { margin: 0; font-size: clamp(1.8rem, 7vw, 2.5rem); line-height: 1.12; }
-    .name { color: var(--pink); }
-    .intro { color: #d1d5db; line-height: 1.6; margin: 16px 0 24px; }
+    h1 {
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      line-height: 1.15;
+    }
 
-    button {
+    .name { color: var(--pink); }
+    .intro { color: #d1d5db; line-height: 1.6; }
+
+    button, .file-link {
+      display: block;
       width: 100%;
       min-height: 52px;
+      padding: 15px;
+      margin-top: 12px;
       border: 0;
-      border-radius: 16px;
-      padding: 14px 18px;
+      border-radius: 15px;
       font-size: 1rem;
       font-weight: 800;
-      cursor: pointer;
-      transition: transform .15s ease, opacity .15s ease;
-    }
-
-    button:active { transform: scale(.98); }
-
-    .primary {
-      color: #1f1235;
-      background: linear-gradient(100deg, #fda4af, #c4b5fd);
-    }
-
-    .question { display: none; margin-top: 26px; animation: appear .4s ease both; }
-    .question.show { display: block; }
-    .question h2 { font-size: 1.45rem; margin: 0 0 8px; }
-    .question p { color: #d1d5db; margin: 0 0 18px; }
-    .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .yes { color: #052e16; background: #86efac; }
-    .no { color: #fff; background: #f87171; }
-    .download-note { font-size: .75rem; color: #a78bfa; margin-top: 10px; }
-    
-    .hint { font-size: .78rem; color: #9ca3af; margin-top: 20px; }
-    .heart { display: inline-block; animation: pulse 1.2s infinite; }
-
-    /* Google AdSense Wrapper */
-    .ad-wrapper {
-      width: min(100%, 430px);
-      margin-top: 20px;
-      padding: 12px;
-      background: rgba(17, 24, 39, 0.6);
-      border: 1px dashed rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
+      text-decoration: none;
       text-align: center;
-      animation: appear .9s ease both;
+      cursor: pointer;
+      transition: transform .15s ease;
     }
-    
-    .ad-label {
-      font-size: 0.68rem;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
+
+    button:active, .file-link:active {
+      transform: scale(.98);
+    }
+
+    /* BLACK BUTTONS WITH WHITE TEXT */
+    .primary {
+      color: #ffffff;
+      background: #000000;
+      border: 2px solid #ffffff;
+    }
+
+    .yes {
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #86efac;
+    }
+
+    .no {
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #f87171;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .file-link {
+      color: white;
+      background: #ffffff12;
+      border: 1px solid #ffffff2b;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .file-link span {
       display: block;
+      color: #c4b5fd;
+      font-size: .8rem;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    .app { border-left: 4px solid #86efac; }
+    .document { border-left: 4px solid #93c5fd; }
+    .folder { border-left: 4px solid #fcd34d; }
+
+    .note {
+      color: #9ca3af;
+      font-size: .8rem;
+      line-height: 1.5;
+      margin-top: 18px;
+    }
+
+    .back {
+      color: #ffffff;
+      background: #000000;
+      border: 2px solid #ffffff;
+    }
+
+    .heart {
+      display: inline-block;
+      animation: pulse 1.2s infinite;
     }
 
     @keyframes appear {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -133,59 +165,131 @@
 </head>
 
 <body>
-
   <main class="card">
-    <div class="emoji" aria-hidden="true">😎</div>
-    <p class="eyebrow">A tiny question for you</p>
-    <h1>Click Me, <span class="name">Reymart Villacampa Cadalso!</span></h1>
-    <p class="intro">May itatanong lang ako sa'yo. Ready ka na ba? 👀</p>
 
-    <button class="primary" id="startBtn" type="button">✨ Click Me!</button>
+    <!-- PAGE 1: QUESTION -->
+    <section id="homePage" class="page active">
+      <div class="emoji">😎</div>
+      <p class="eyebrow">A tiny question for you</p>
 
-    <section class="question" id="question" aria-live="polite">
-      <h2>Pogi ba ako? 😏</h2>
-      <p>Choose your answer… pero may surprise pa rin! 😂</p>
-      <div class="answers">
-        <button class="yes" type="button" data-answer="Oo">Oo 😍</button>
-        <button class="no" type="button" data-answer="Hindi">Hindi 😂</button>
+      <h1>Click Me,<br>
+        <span class="name">Reymart Villacampa Cadalso!</span>
+      </h1>
+
+      <p class="intro">
+        May itatanong lang ako sa'yo. Ready ka na ba? 👀
+      </p>
+
+      <button class="primary" id="startBtn" type="button">
+        ✨ Click Me!
+      </button>
+
+      <div id="question" hidden>
+        <h2>Pogi ba ako? 😏</h2>
+        <p>Choose your answer… pero may surprise pa rin! 😂</p>
+
+        <div class="answers">
+          <button class="yes" type="button" data-answer="Oo">
+            Oo 😍
+          </button>
+          <button class="no" type="button" data-answer="Hindi">
+            Hindi 😂
+          </button>
+        </div>
       </div>
-      <p class="download-note">💡 Answering will proceed to the KSWEB APK download link.</p>
+
+      <p class="note">
+        Made with <span class="heart">💗</span> by Reymart
+      </p>
     </section>
 
-    <p class="hint">Made with <span class="heart">💗</span> by Reymart</p>
+    <!-- PAGE 2: DOWNLOAD CENTER -->
+    <section id="filesPage" class="page">
+      <div class="emoji">📂</div>
+      <p class="eyebrow">Reymart's download center</p>
+
+      <h1 id="resultTitle">Thank you for answering! 🎉</h1>
+      <p class="intro" id="resultMessage">
+        Choose a file below to open it.
+      </p>
+
+      <!-- KSWEB APK -->
+      <a class="file-link app"
+         href="https://www.mediafire.com/file/6his4b9kkfd31te/KSWEB_4.06_93_67862d.apk/file"
+         target="_blank" rel="noopener noreferrer">
+        📱 Download KSWEB APK
+        <span>Android application · MediaFire</span>
+      </a>
+
+      <!-- APPLICATION LETTER -->
+      <a class="file-link document"
+         href="https://cdn.fbsbx.com/v/t59.2708-21/851502304_2127641108121609_3877377537446660303_n.docx/Reymart_Cadalso_Modified_Semi_Block_Letter.docx?_nc_cat=102&ccb=1-7&_nc_sid=2b0e22&_nc_eui2=AeFpJrWGx0luvs0CjD2oNegVX6GanaEgrvJfoZqdoSCu8lzHYTnlhw1-1bANQc7Z6y-rCWa-ZFfyMbpTn-sI-7a7&_nc_ohc=7BuRLQaZ9bcQ7kNvwHeqsw4&_nc_oc=AdrrpWXVkvgXcBp374Vx6sz4EZH-BJLUlDJNQnCg4dYV-Ulmk1XlLwG64bH0dvg2Alo&_nc_ad=z-m&_nc_cid=1119&_nc_zt=7&_nc_ht=cdn.fbsbx.com&_nc_gid=rdHmZDE6KrIitIfSgvmg6A&_nc_ss=7a338&oh=03_Q7cD6gHcZW8sPK8GlqqyRk-CANkg--bxP8Brs1q_iL0BsYNB_A&oe=6ADC8671&dl=1"
+         target="_blank" rel="noopener noreferrer">
+        📄 Application Letter
+        <span>Reymart Cadalso · DOCX document</span>
+      </a>
+
+      <!-- MORE APPS -->
+      <a class="file-link folder"
+         href="https://drive.google.com/drive/folders/1pwQXpzYriBR_EHuagjq_noAck2qeFnTW"
+         target="_blank" rel="noopener noreferrer">
+        🗂️ More Apps &amp; Files
+        <span>Open the shared Google Drive folder</span>
+      </a>
+
+      <p class="note">
+        Only download files from sources you trust.
+        Android may ask you to confirm before installing an APK.
+      </p>
+
+      <button class="back" id="backBtn" type="button">
+        ← Back to the question
+      </button>
+
+      <p class="note">
+        Made with <span class="heart">💗</span> by Reymart
+      </p>
+    </section>
+
   </main>
 
-  <!-- Google AdSense Container Placement -->
-  <div class="ad-wrapper">
-    <span class="ad-label">Advertisement</span>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-8309769369347508"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
   <script>
-    const DOWNLOAD_LINK = "https://www.mediafire.com/file/6his4b9kkfd31te/KSWEB_4.06_93_67862d.apk/file";
+    const homePage = document.getElementById("homePage");
+    const filesPage = document.getElementById("filesPage");
+    const question = document.getElementById("question");
+    const startBtn = document.getElementById("startBtn");
 
-    document.getElementById("startBtn").addEventListener("click", function () {
-      document.getElementById("question").classList.add("show");
-      this.textContent = "😏 Now answer me!";
-      this.disabled = true;
-      this.style.opacity = "0.7";
-      this.style.cursor = "default";
+    startBtn.addEventListener("click", function () {
+      question.hidden = false;
+      startBtn.textContent = "😏 Now answer me!";
+      startBtn.disabled = true;
+      startBtn.style.opacity = "0.7";
     });
 
     document.querySelectorAll("[data-answer]").forEach(function (button) {
       button.addEventListener("click", function () {
-        window.location.href = DOWNLOAD_LINK;
+        const answer = this.dataset.answer;
+
+        document.getElementById("resultTitle").textContent =
+          answer === "Oo"
+            ? "Alam ko namang pogi ako! 😎"
+            : "Aray ko! 😂 Baka next time!";
+
+        document.getElementById("resultMessage").textContent =
+          "You answered: " + answer +
+          ". Salamat sa pagsagot! Pili ka ng file sa ibaba. 👇";
+
+        homePage.classList.remove("active");
+        filesPage.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     });
-  </script>
 
+    document.getElementById("backBtn").addEventListener("click", function () {
+      filesPage.classList.remove("active");
+      homePage.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
